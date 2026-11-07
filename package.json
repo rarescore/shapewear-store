@@ -1,0 +1,11 @@
+{
+  "name": "shapewear-store",
+  "version": "1.0.0",
+  "description": "Shapewear e-commerce store skeleton — easy-off faja/bodysuit brand. Size tool, lookbook, measuring magazine, Shopify-ready.",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": ["shapewear", "shopify", "size-tool", "e-commerce"],
+  "license": "UNLICENSED"
+}

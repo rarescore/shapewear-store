@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Your Size</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="size.html">Size</a>
+    <a href="lookbook.html">Lookbook</a>
+    <a href="shop.html">Shop</a>
+    <a href="magazine.html">Magazine</a>
+  </nav>
+
+  <main class="size-tool">
+    <h1>Find your size in ten seconds</h1>
+    <label>Weight (lbs)
+      <input type="number" id="weight" placeholder="e.g. 160">
+    </label>
+    <button id="skip">or skip ahead</button>
+    <div id="extra-fields" hidden>
+      <label>Waist (in)
+        <input type="number" id="waist" placeholder="e.g. 30">
+      </label>
+      <label>Hip (in)
+        <input type="number" id="hip" placeholder="e.g. 40">
+      </label>
+      <label>Underbust (in)
+        <input type="number" id="underbust" placeholder="e.g. 34">
+      </label>
+    </div>
+    <button id="calculate">Get my size</button>
+    <div id="result" hidden></div>
+    <button id="save" hidden>Save my measurements</button>
+    <a href="shop.html" id="shop-link" hidden>Shop this size</a>
+  </main>
+  <script src="size-calculator.js"></script>
+</body>
+</html>

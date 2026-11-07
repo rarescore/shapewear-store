@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lookbook</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="size.html">Size</a>
+    <a href="lookbook.html">Lookbook</a>
+    <a href="shop.html">Shop</a>
+    <a href="magazine.html">Magazine</a>
+  </nav>
+
+  <main>
+    <h1>Worn by real bodies</h1>
+    <div class="filters">
+      <button class="filter active">All</button>
+      <button class="filter">Athletic</button>
+      <button class="filter">Curvy</button>
+      <button class="filter">Petite</button>
+      <button class="filter">Plus-size</button>
+    </div>
+    <div class="lookbook-grid">
+      <div class="tile" data-type="curvy">
+        <div class="photo">Photo: curvy, size M</div>
+        <p>Measurements: waist 32, hip 42. Ordered the bodysuit. Would size up for the premium panel.</p>
+      </div>
+      <div class="tile" data-type="athletic">
+        <div class="photo">Photo: athletic, size S</div>
+        <p>Measurements: waist 27, hip 37. The brief is her everyday.</p>
+      </div>
+      <div class="tile" data-type="petite">
+        <div class="photo">Photo: petite, size XS</div>
+        <p>Measurements: waist 25, hip 34. Loves the open-back for quick changes.</p>
+      </div>
+      <div class="tile" data-type="plus-size">
+        <div class="photo">Photo: plus-size, size 2XL</div>
+        <p>Measurements: waist 38, hip 48. The multi-panel is her go-to.</p>
+      </div>
+    </div>
+  </main>
+  <script>
+    document.querySelectorAll('.filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active);
+        const type = btn.textContent.toLowerCase().replace('-', '-);
+        document.querySelectorAll('.tile').forEach(tile => {
+          tile.style.display = (type === 'all' || tile.dataset.type === type) ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>
