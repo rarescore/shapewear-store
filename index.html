@@ -4,60 +4,94 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shapewear Store — Homepage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <nav>
-    <a href="index.html">Home</a>
-    <a href="size.html">Size</a>
-    <a href="lookbook.html">Lookbook</a>
-    <a href="shop.html">Shop</a>
-    <a href="magazine.html">Magazine</a>
+    <a href="index.html" class="nav-brand">UNZIP</a>
+    <div class="nav-links">
+      <a href="size.html">Size</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="shop.html">Shop</a>
+      <a href="magazine.html">Magazine</a>
+    </div>
   </nav>
 
   <section class="hero">
     <video autoplay muted loop playsinline>
       <source src="hero.mp4" type="video/mp4">
     </video>
+    <div class="hero-overlay"></div>
     <div class="hero-text">
+      <p class="section-label">The Easy-Off Bodysuit</p>
       <h1>Shape that comes off in one second.</h1>
-      <p>The easy-off bodysuit built for real bathrooms, real bodies, real life.</p>
+      <p>Built for real bathrooms, real bodies, real life.</p>
+      <a href="shop.html" class="hero-cta">Shop the collection</a>
     </div>
   </section>
 
-  <section class="creator-scroll">
-    <h2>See it on real women</h2>
+  <section class="creator-scroll reveal">
+    <p class="section-label">On real women</p>
+    <h2>See it in motion</h2>
     <div class="clips">
-      <div class="clip">Size 14, wore it to work</div>
-      <div class="clip">Postpartum, six months in</div>
-      <div class="clip">No more bathroom struggle</div>
+      <div class="clip">
+        <div class="clip-video">Video</div>
+        <p class="clip-caption">Size 14, wore it to work</p>
+      </div>
+      <div class="clip">
+        <div class="clip-video">Video</div>
+        <p class="clip-caption">Postpartum, six months in</p>
+      </div>
+      <div class="clip">
+        <div class="clip-video">Video</div>
+        <p class="clip-caption">No more bathroom struggle</p>
+      </div>
     </div>
   </section>
 
-  <section class="product-grid">
+  <section class="product-grid reveal">
+    <p class="section-label">The collection</p>
+    <h2>Start with the hero</h2>
     <div class="product">
-      <h3>Easy-Off Bodysuit</h3>
-      <p>The hero. Open-back pull-down, seamless front.</p>
-      <span>$35</span>
+      <div class="product-image">Photo</div>
+      <div class="product-info">
+        <h3>Easy-Off Bodysuit</h3>
+        <p>The hero. Open-back pull-down, seamless front.</p>
+        <span class="price">$35</span>
+      </div>
     </div>
     <div class="product">
-      <h3>Matching Brief</h3>
-      <p>Butt lift and thigh smoothing, same fabric.</p>
-      <span>$24</span>
+      <div class="product-image">Photo</div>
+      <div class="product-info">
+        <h3>Matching Brief</h3>
+        <p>Butt lift and thigh smoothing, same fabric.</p>
+        <span class="price">$24</span>
+      </div>
     </div>
     <div class="product">
-      <h3>Premium Multi-Panel</h3>
-      <p>Maximum compression, multiple zones.</p>
-      <span>$48</span>
+      <div class="product-image">Photo</div>
+      <div class="product-info">
+        <h3>Premium Multi-Panel</h3>
+        <p>Maximum compression, multiple zones.</p>
+        <span class="price">$48</span>
+      </div>
     </div>
   </section>
 
   <section class="trust-stack">
-    <p>Free shipping over $80 · Free exchanges · XS–3XL</p>
+    <div class="trust-items">
+      <div class="trust-item"><strong>Free shipping</strong> over $80</div>
+      <div class="trust-item"><strong>Free exchanges</strong> always</div>
+      <div class="trust-item"><strong>XS – 3XL</strong> inclusive sizing</div>
+    </div>
   </section>
 
-  <section class="faq">
-    <h2>Questions</h2>
+  <section class="faq reveal">
+    <p class="section-label">Questions</p>
+    <h2>Straight answers</h2>
     <details><summary>Does it roll down?</summary><p>No. Silicone grip along the hem keeps it in place through a full workday.</p></details>
     <details><summary>Does it show under clothes?</summary><p>The front is seamless with no visible lines under fitted tops or dresses.</p></details>
     <details><summary>Can I machine wash it?</summary><p>Yes. Cold water, air dry. The open-back panel is fully washable.</p></details>
@@ -65,12 +99,31 @@
 
   <section class="email-capture">
     <h2>Get the free fit guide</h2>
-    <input type="email" placeholder="Your email">
-    <button>Send it</button>
+    <p>Three measurements, one recommended size, sent straight to your inbox.</p>
+    <form class="email-form">
+      <input type="email" placeholder="Your email" required>
+      <button type="submit">Send it</button>
+    </form>
   </section>
 
   <footer>
     <a href="#">Policies</a> · <a href="#">Contact</a> · <a href="#">Instagram</a> · <a href="#">TikTok</a>
   </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').classList.toggle('scrolled', window.scrollY > 40);
+    });
+  </script>
 </body>
 </html>
